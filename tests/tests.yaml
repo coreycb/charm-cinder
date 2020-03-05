@@ -19,10 +19,21 @@ configure:
 - zaza.openstack.charm_tests.neutron.setup.basic_overcloud_network
 - zaza.openstack.charm_tests.nova.setup.create_flavors
 - zaza.openstack.charm_tests.nova.setup.manage_ssh_key
+- zaza.openstack.charm_tests.tempest.setup.add_cirros_alt_image
+- zaza.openstack.charm_tests.tempest.setup.add_tempest_flavors
+- zaza.openstack.charm_tests.tempest.setup.add_tempest_roles
+- zaza.openstack.charm_tests.tempest.setup.render_tempest_config_keystone_v3
 tests:
 - zaza.openstack.charm_tests.cinder.tests.CinderTests
 - zaza.openstack.charm_tests.cinder.tests.SecurityTests
 - zaza.openstack.charm_tests.policyd.tests.CinderTests
+- zaza.openstack.charm_tests.tempest.tests.TempestTest
 tests_options:
   policyd:
     service: cinder
+  tempest:
+    default:
+      regex:
+         - "cinder_tempest_plugin"
+         - "tempest.api.volume"
+         - "tempest.scenario.test_volume_*"

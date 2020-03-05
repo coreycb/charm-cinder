@@ -14,5 +14,7 @@ flake8>=2.2.4,<=2.4.1
 stestr>=2.2.0
 coverage>=4.5.2
 pyudev              # for ceph-* charm unit tests (need to fix the ceph-* charm unit tests/mocking)
-git+https://github.com/openstack-charmers/zaza.git#egg=zaza;python_version>='3.0'
-git+https://github.com/openstack-charmers/zaza-openstack-tests.git#egg=zaza.openstack
+git+https://opendev.org/openstack/tempest.git#egg=tempest
+git+https://opendev.org/openstack/cinder-tempest-plugin.git#egg=cinder-tempest-plugin
+git+https://github.com/gnuoy/zaza.git@support-alt-test-runners#egg=zaza
+git+https://github.com/coreycb/zaza-openstack-tests.git@add-tempest-support-corey#egg=zaza.openstack
